@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Orden de Pedido</title>
+    <link rel="stylesheet" href="../css/flexboxgrid.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="row center-xs">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+            <h1 id="titulo principal">Almacén Yuyitos</h1>
+        </div>
+    </div>
+    <div class="row center-xs">
+        <div class="col-xs-6">
+            <h1>Registro de Orden de Pedido</h1>
+        </div>
+    </div>
+    <div class="row center-xs">
+        <div class="col-lg-4">
+            <form action="../index.html" method="GET" id="regpedido">
+                <div class="form-group">
+                  <label for="fecpedido">Fecha de la Boleta</label>
+                  <input type="date" class="form-control" id="fecpedido" name="fecpedido" readonly>
+                </div>
+                
+                <div class="form-group">
+                  <label for="regpedrutprov">Rut Proveedor</label>
+                  <input type="text" class="form-control" name="regpedrutprov" id="regpedrutprov">
+                </div>
+                <h3>Detalles Producto</h3>
+                <br>
+                <div class="form-group">
+                  <label for="codprodpedi">Código del producto</label>
+                  <input type="text" class="form-control" name="codprodpedi" id="codprodpedi">
+                </div>
+                <div class="form-group">
+                  <label for="cantpedi">Cantidad</label>
+                  <input type="text" class="form-control" id="cantpedi" name="cantpedi">
+                </div>
+                <div class="form-group">
+                  <label for="totalpedi">Total Pedido</label>
+                  <input type="text" readonly class="form-control" id="totalpedi" name="totalpedi">
+                </div>
+
+                
+                <br>
+                <button type="submit" class="btn btn-primary" id="enviarpedido">Enviar Pedido</button>
+            </form>
+            <a href="../index.html">
+                <button type="submit" class="btn btn-primary">Ir al inicio</button>
+            </a>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+    <!--JS SCRIPT-->
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/jquery.validate.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/app.js"></script> 
+</body>
+</html>
