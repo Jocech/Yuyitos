@@ -12,7 +12,7 @@ class Producto(models.Model):
     v_compra = models.IntegerField()
     v_venta = models.IntegerField()
     marca = models.CharField(max_length=50)
-    stock = models.IntegerField()
+    #stock = models.IntegerField()
     fam = models.ForeignKey(Familia,on_delete=models.CASCADE)
 
 class Proveedor(models.Model):

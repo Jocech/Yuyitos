@@ -1,69 +1,47 @@
-<!DOCTYPE html>
-<html lang="es-cl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Productos</title>
-    <link rel="stylesheet" href="../css/flexboxgrid.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-</head>
-<body>
-    <div class="row center-xs">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-            <h1 id="titulo principal">Almacén Yuyitos</h1>
-        </div>
-    </div>
-    <div class="row center-xs">
-        <div class="col-xs-6">
-            <h1>Registro de Productos</h1>
-        </div>
-    </div>
+<div class="row center-xs">
+  <div class="col-xs-6">
+      <h1 class="txt-blanco">Registro de Productos</h1>
+  </div>
+</div>
 
-    <div class="row center-xs">
-        <div class="col-lg-4">
-            <form action="../index.html" method="GET" id="regprodu">
-                <div class="form-group">
-                  <label for="descprodu">Descripción</label>
-                  <input type="text" class="form-control" name="descprodu" id="descprodu">
-                </div>
-                <div class="form-group">
-                  <label for="compraprodu">Precio Compra</label>
-                  <input type="text" class="form-control" id="compraprodu" name="compraprodu">
-                </div>
-                <div class="form-group">
-                  <label for="ventaprodu">Precio Venta</label>
-                  <input type="text" class="form-control" id="ventaprodu" name="ventaprodu">
-                </div>
-                <div class="form-group">
-                  <label for="marcaprodu">Marca Producto</label>
-                  <input type="text" class="form-control" id="marcaprodu" name="marcaprodu">
-                </div>
-                <div class="form-group">
-                  <label for="codfamprodu">Código Familia Producto</label>
-                  <input type="text" class="form-control" id="codfamprodu" name="codfamprodu">
-                </div>
-                <div class="form-group">
-                  <label for="fecprodu">Fecha Vencimiento</label>
-                  <small id="emailHelp" class="form-text text-muted">El formato de fecha debe ser (solo dígitos): ddmmaaaa</small>
-                  <input type="text" class="form-control" id="fecprodu" name="fecprodu">
-                </div>
-                <button type="submit" class="btn btn-primary" id="guardarprodu">Guardar</button>
-              </form>
-              <a href="../index.html">
-                  <button type="submit" class="btn btn-primary">Ir al inicio</button>
-              </a>
-        </div>
-    </div>
-    
-
-
-
-    <!--JS SCRIPT-->
-    <script src="../js/jquery-3.4.1.js"></script>
-    <script src="../js/jquery.validate.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/app.js"></script>
-</body>
-</html>
+<div class="row center-xs">
+  <div class="col-lg-4">
+      <form action="{% url 'almacen:regproductos' %}" method="POST" id="regproductos">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="descprodu">Descripción</label>
+            <input type="text" class="form-control" name="descprodu" id="descprodu">
+          </div>
+          <div class="form-group">
+            <label for="compraprodu">Precio Compra</label>
+            <input type="text" class="form-control" id="compraprodu" name="compraprodu">
+          </div>
+          <div class="form-group">
+            <label for="ventaprodu">Precio Venta</label>
+            <input type="text" class="form-control" id="ventaprodu" name="ventaprodu">
+          </div>
+          <div class="form-group">
+            <label for="marcaprodu">Marca Producto</label>
+            <input type="text" class="form-control" id="marcaprodu" name="marcaprodu">
+          </div>
+          <div class="form-group">
+            <label for="codfamprodu">Código Familia Producto</label>
+            <input type="text" class="form-control" id="codfamprodu" name="codfamprodu">
+          </div>
+          <div class="form-group">
+            <label for="fecprodu">Fecha Vencimiento</label>
+            <small id="emailHelp" class="form-text text-muted">El formato de fecha debe ser (solo dígitos): ddmmaaaa</small>
+            <input type="date" class="form-control" id="fecprodu" name="fecprodu">
+          </div>
+          <button type="submit" class="btn btn-primary" id="guardarprodu">Guardar</button>
+        </form>
+        <a href="{% url 'almacen:index' %}">
+            <button type="submit" class="btn btn-primary">Ir al inicio</button>
+        </a>
+  </div>
+</div>
+{% endblock %}

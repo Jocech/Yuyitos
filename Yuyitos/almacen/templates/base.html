@@ -9,9 +9,23 @@
     {% load static %}  <!--Esto sirve para cargar la carpeta static dentro de este html-->
     <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    
+    <div class="idprincipal row center-xs ">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+            <h1 id="h1-titulo-principal">Almacén Yuyitos</h1>
+        </div>
+    </div>
+    {% block content %}<!--Esto indica que dentro de este bloque se escribira el código que extendera de base.html-->
+    {% endblock %}
+
+    <!--JS SCRIPT-->
+    <script src="{% static 'js/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>

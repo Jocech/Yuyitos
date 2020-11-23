@@ -1,70 +1,45 @@
-<!DOCTYPE html>
-<html lang="es-cl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Clientes</title>
-    <link rel="stylesheet" href="../css/flexboxgrid.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="row center-xs">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-            <h1 id="titulo principal">Almacén Yuyitos</h1>
-        </div>
-    </div>
-    <div class="row center-xs">
-        <div class="col-xs-6">
-            <h1>Registro de Clientes</h1>
-        </div>
-    </div>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row center-xs">
+  <div class="col-xs-6">
+      <h1 class="txt-blanco">Registro de Clientes</h1>
+  </div>
+</div>
 
-    <div class="row center-xs">
-        <div class="col-lg-4">
-            <form action="../index.html" method="GET" id="regcli">
-                <div class="form-group">
-                  <label for="rutcli">Rut Cliente</label>
-                  <input type="text" class="form-control" name="rutcli" id="rutcli">
-                </div>
-                <div class="form-group">
-                  <label for="nomcli">Nombre</label>
-                  <input type="text" class="form-control" name="nomcli" id="nomcli">
-                </div>
-                <div class="form-group">
-                  <label for="apecli">Apellido</label>
-                  <input type="text" class="form-control" id="apecli" name="apecli">
-                </div>
-                <div class="form-group">
-                  <label for="direcli">Dirección</label>
-                  <input type="text" class="form-control" id="direcli" name="direcli">
-                </div>
-                <div class="form-group">
-                  <label for="fonocli">Teléfono</label>
-                  <input type="text" class="form-control" id="fonocli" name="fonocli">
-                </div>
-                <div class="form-group">
-                  <label for="correocli">Correo</label>
-                  <input type="email" class="form-control" id="correocli" name="correocli">
-                </div>
-                <button type="submit" class="btn btn-primary" id="guardarcli">Guardar</button>
-                               
-              </form>
-              <a href="../index.html">
-                <button type="submit" class="btn btn-primary">Ir al inicio</button>
-            </a>
-        </div>
-    </div>
-
-
-
-
-    
-
-    <!--JS SCRIPT-->
-    <script src="../js/jquery-3.4.1.js"></script>
-    <script src="../js/jquery.validate.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/app.js"></script>
-</body>
-</html>
+<div class="row center-xs">
+  <div class="col-lg-4">
+      <form action="{% url 'almacen:regclientes' %}" method="POST" id="formregcli">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="rutcli">Rut Cliente</label>
+            <input type="text" class="form-control" name="rutcli" id="rutcli">
+          </div>
+          <div class="form-group">
+            <label for="nomcli">Nombre</label>
+            <input type="text" class="form-control" name="nomcli" id="nomcli">
+          </div>
+          <div class="form-group">
+            <label for="apecli">Apellido</label>
+            <input type="text" class="form-control" id="apecli" name="apecli">
+          </div>
+          <div class="form-group">
+            <label for="direcli">Dirección</label>
+            <input type="text" class="form-control" id="direcli" name="direcli">
+          </div>
+          <div class="form-group">
+            <label for="fonocli">Teléfono</label>
+            <input type="text" class="form-control" id="fonocli" name="fonocli">
+          </div>
+          <div class="form-group">
+            <label for="correocli">Correo</label>
+            <input type="email" class="form-control" id="correocli" name="correocli">
+          </div>
+          <button type="submit" class="btn btn-primary" id="guardarcli">Guardar</button>
+        </form>
+        <a href="{% url 'almacen:index' %}">
+          <button type="submit" class="btn btn-primary">Ir al inicio</button>
+      </a>
+  </div>
+</div>
+{% endblock %}

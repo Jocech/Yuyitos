@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row center-xs">
+    <div class="col-xs-6">
+        <h1 class="txt-blanco">Registro de Familias de productos</h1>
+    </div>
+  </div>
+  
+  <div class="row center-xs">
+    <div class="col-lg-4">
+        <form action="{% url 'almacen:regfamilia' %}" method="POST" id="regfamilia">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="codfam">Código Familia</label>
+              <input type="text" class="form-control" name="codfam" id="codfam">
+            </div>
+            <div class="form-group">
+              <label for="nomfam">Nombre de la Familia</label>
+              <input type="text" class="form-control" id="nomfam" name="nomfam">
+            </div>
+            <button type="submit" class="btn btn-primary" id="guardarprodu">Guardar</button>
+          </form>
+          <a href="{% url 'almacen:index' %}">
+              <button type="submit" class="btn btn-primary">Ir al inicio</button>
+          </a>
+    </div>
+  </div>
+
+
+{% endblock %}
